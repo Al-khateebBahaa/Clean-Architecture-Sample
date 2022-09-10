@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AndroidTest</string>
+    <string name="search">Search</string>
+    <string name="unsplash_search">UnSplash Search</string>
+    <string name="ops_error">Ops, something went wrong, try again please</string>
+    <string name="timeout_error">Ops, request time out, please try again</string>
+    <string name="no_images_found">No Images found</string>
+    <string name="photo_by">Photo by: %s</string>
+
+</resources>

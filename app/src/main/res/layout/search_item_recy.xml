@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.ism.task.data.remote.dto.SearchImagesDto.Result" />
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/spacing_tiny"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            downloadImage="@{data.links.download}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:scaleType="fitCenter"
+            tools:src="@drawable/no_image" />
+
+
+        <TextView
+            android:id="@+id/description_tx"
+            style="@style/fontRegularStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{data.description}"
+            tools:text="Test description for test a new line, is it more than two lines?" />
+
+        <TextView
+            style="@style/fontRegularStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{String.format(@string/photo_by, data.user.name)}"
+            tools:text="Test description for test a new line, is it more than two lines?" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
