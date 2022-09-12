@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 
-const val BEARER = "Client-ID "
+const val KEY = "Client-ID "
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -37,8 +37,7 @@ object NetworkingModule {
 
             val builder = chain.request()
                 .newBuilder()
-               // .addHeader(CONTENT_TYPE, "application/json")
-               .addHeader("Authorization", BEARER.plus(ACCESS_KEY))
+               .addHeader("Authorization", KEY.plus(ACCESS_KEY))
             chain.proceed(builder.build())
         }
 

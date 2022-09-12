@@ -5,7 +5,6 @@ import com.ism.task.data.remote.GenericResponse
 import com.ism.task.data.remote.dto.toSearchModel
 import com.ism.task.domain.model.SearchModel
 import com.ism.task.domain.repo.SearchRepo
-import kotlinx.coroutines.flow.flow
 import java.io.IOException
 import javax.inject.Inject
 
@@ -18,16 +17,16 @@ class PhotoSearchUseCase @Inject constructor(
         page: Int
     ): GenericResponse<SearchModel> {
 
-       return try {
+        return try {
             val mPhotos = repo.searchForPhotos(searchQuery, page, 20)
 
             if (mPhotos is NetworkResponse.Success) {
-                  NetworkResponse.Success(mPhotos.body.toSearchModel())
+                NetworkResponse.Success(mPhotos.body.toSearchModel())
             } else {
-              NetworkResponse.UnknownError(Throwable("Unknown error occurs"))
+                NetworkResponse.UnknownError(Throwable("Unknown error occurs"))
             }
         } catch (e: IOException) {
-           NetworkResponse.NetworkError(e)
+            NetworkResponse.NetworkError(e)
 
         }
 

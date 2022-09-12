@@ -11,10 +11,10 @@ class SearchRepoImpl @Inject constructor(
 ) : SearchRepo {
 
     override suspend fun searchForPhotos(
-        searchQuery: String,
+        searchQuery: String?,
         page: Int,
         pageCount: Int
     ): GenericResponse<SearchImagesDto> {
-        return api.getPhotos(searchQuery, page, pageCount)
+        return api.getPhotos(searchQuery!!, page, pageCount)
     }
 }

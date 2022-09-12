@@ -9,7 +9,6 @@ import retrofit2.http.Query
 
 typealias GenericResponse<S> = NetworkResponse<S, BaseResponse<String>>
 
-
 private const val GET_SEARCH_TEXT = "search/photos"
 
 interface AppApiServices {

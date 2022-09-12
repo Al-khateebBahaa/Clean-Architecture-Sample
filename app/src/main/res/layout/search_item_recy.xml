@@ -14,14 +14,14 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/spacing_tiny"
+        android:layout_margin="@dimen/spacing_small"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatImageView
             downloadImage="@{data.links.download}"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_150sdp"
-            android:scaleType="fitCenter"
+            android:layout_height="@dimen/_200sdp"
+            android:scaleType="fitXY"
             tools:src="@drawable/no_image" />
 
 

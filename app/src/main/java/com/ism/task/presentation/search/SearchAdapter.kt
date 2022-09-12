@@ -19,7 +19,7 @@ class SearchAdapter(private val pagingListener: OnPagingMovedListener) :
     var isLastPage = false
 
 
-    fun setPhotosData(mPhotosData: List<SearchImagesDto.Result>?) {
+    fun setPhotosData(mPhotosData: List<SearchImagesDto.Result>?, totalItems: Int?) {
 
         if (!mPhotosData.isNullOrEmpty()) {
 
@@ -28,6 +28,10 @@ class SearchAdapter(private val pagingListener: OnPagingMovedListener) :
 
             this.mPhotosData.addAll(mPhotosData)
             notifyItemRangeInserted(this.mPhotosData.size - 1, mPhotosData.size)
+
+
+            if (totalItems == mPhotosData.size)
+                isLastPage = true
         }
     }
 

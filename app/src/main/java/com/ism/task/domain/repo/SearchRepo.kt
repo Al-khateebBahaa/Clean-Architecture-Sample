@@ -6,9 +6,9 @@ import com.ism.task.data.remote.dto.SearchImagesDto
 interface SearchRepo {
 
     suspend fun searchForPhotos(
-        searchQuery: String,
+        searchQuery: String?,
         page: Int,
         pageCount: Int
-    ): GenericResponse<SearchImagesDto>
+    ): GenericResponse<SearchImagesDto>?
 
 }

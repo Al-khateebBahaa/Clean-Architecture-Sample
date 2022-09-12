@@ -17,7 +17,15 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.ism.task.util.MockTestRunner"
+
+
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file('gradle.properties').newDataInputStream())
+
+        buildConfigField "String", "API_KEY", "\"${properties.getProperty('API_KEY')}\""
+        buildConfigField "String", "BASE_URL", "\"${properties.getProperty('BASE_URL')}\""
+
 
 
     }
@@ -53,10 +61,11 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    //Testing
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-
 
     //coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_core_version"
@@ -86,6 +95,14 @@ dependencies {
     implementation 'com.github.yogacp:android-viewbinding:1.0.3'
 
     implementation("io.coil-kt:coil:2.2.1")
+
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+    testImplementation "com.google.truth:truth:1.1.3"
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:4.9.3"
+    androidTestImplementation 'com.jakewharton.espresso:okhttp3-idling-resource:1.0.0'
+    androidTestImplementation 'androidx.test:core-ktx:1.4.0'
+
+    androidTestImplementation 'androidx.test:runner:1.4.0'
 
 
 
